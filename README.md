@@ -7,32 +7,32 @@ meteor add boxfish:accounts-wechat
 ```
 
 ##Setup and Usage
-1. Now in your app do create the `accounts.js` (or `acoounts.coffee` if you use coffeescript) and put following code inside
+1. Configure the WeChat service with appId and secret
+```
+    ServiceConfiguration.configurations.update(
+      { "service": "wechat" },
+      {
+          $set: {
+              "service": "wechat",
+              "appId": <your-app-id>,
+              "secret": <your-app-secret>
+          }
+      },
+      { upsert: true } // If doesn't find wechat, insert one
+    );
+```
 
- so,it file looks in directory tree- `<your-app-directory>/server/accounts.js`  and put the APP id and APP secret from previous step
-
-    ```
-    ServiceConfiguration.configurations.remove({
-      service: "wechat"
-    });
-    ServiceConfiguration.configurations.insert({
-      service: "wechat",
-      appId: "<your-app-id>",
-      scope:'basic',
-      secret: "<your-app-secret>"
-    });
-    ```
-2. Now, all things are setup, you are ready to use this package
-6. Add following button code for login
+2. Login using WeChat
 ```
       Meteor.loginWithWeChat(function (err, res) {
-          if (err !== undefined)
-            console.log('success ' + res)
-          else
-            console.log('login failed ' + err)
+          if (err) {
+            console.log('success ' + res);
+          }
+          else {
+            console.log('login failed ' + err);
+          }
       });
 ```
-
 
 ## License
 
