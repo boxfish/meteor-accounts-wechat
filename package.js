@@ -1,7 +1,7 @@
 Package.describe({
   "name": "boxfish:accounts-wechat",
   "summary": "Login service for WeChat accounts",
-  "version": "0.8.11",
+  "version": "0.9.3",
   "git": "https://github.com/boxfish/meteor-accounts-wechat.git"
 });
 
@@ -14,7 +14,7 @@ Package.onUse(function(api) {
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
 
-  api.use('boxfish:wechat@0.8.11', ['client', 'server']);
+  api.use('boxfish:wechat@0.9.3', ['client', 'server']);
 
   api.addFiles('wechat_login_button.css','client');
 

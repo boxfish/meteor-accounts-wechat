@@ -1,12 +1,22 @@
 # Meteor Acccounts Wechat
-Wechat account login for meteor with Cordova support on mobile devices
+Wechat account login for meteor with support on ios and android.
+
 
 ##Install
 ```
 meteor add boxfish:accounts-wechat
 ```
 
-##Setup and Usage
+## Cordova Integration
+This package uses Cordova plugin (https://github.com/xu-li/cordova-plugin-wechat) on mobile devices to fetch the authorization code. To use it, the `AppId` needs to be set in the mobile.config:
+
+```
+App.configurePlugin('cordova-plugin-wechat', {
+    WECHATAPPID: '<WECHATAPPID>'
+});
+```
+
+## Setup and Usage
 1. Configure the WeChat service with appId and secret
 ```
     ServiceConfiguration.configurations.update(
